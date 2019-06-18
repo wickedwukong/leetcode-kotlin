@@ -1,7 +1,7 @@
 package leetcode.problems.twosum
 
-import kotlin.test.Test
 import org.assertj.core.api.Assertions.assertThat
+import kotlin.test.Test
 
 class TwoSumTest {
 
