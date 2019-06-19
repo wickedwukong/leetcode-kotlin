@@ -15,4 +15,9 @@ class AddTwoNumbersTest {
         assertThat(Solution().addTwoNumbers(ListNode(1, null), null)).isEqualTo(ListNode(1, null))
         assertThat(Solution().addTwoNumbers(null, ListNode(2, null))).isEqualTo(ListNode(2, null))
     }
+
+    @Test
+    fun `two single digit list`() {
+        assertThat(Solution().addTwoNumbers(ListNode(1, null), ListNode(2, null))).isEqualTo(ListNode(3, null))
+    }
 }
