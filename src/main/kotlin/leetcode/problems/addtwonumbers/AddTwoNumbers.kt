@@ -4,6 +4,10 @@ import java.util.*
 
 class Solution {
     fun addTwoNumbers(l1: LinkedList<Int>, l2: LinkedList<Int>): LinkedList<Int> {
+        return if (l1.size >= l2.size) foo(l1, l2) else foo(l2, l1)
+    }
+
+    private fun foo(l1: LinkedList<Int>, l2: LinkedList<Int>): LinkedList<Int> {
         if (l1.isEmpty()) return l2
         if (l2.isEmpty()) return l1
 
@@ -11,7 +15,13 @@ class Solution {
         result.add(0)
 
         for ((index, value) in l1.withIndex()) {
-            val addition = result.last + value + l2[index]
+
+            val addition = if (l2.size >= (index + 1)) {
+                result.last + value + l2[index]
+            } else {
+                result.last + value
+            }
+
             result.removeLast()
 
             if (addition >= 10) {

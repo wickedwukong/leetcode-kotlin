@@ -23,7 +23,20 @@ class AddTwoNumbersTest {
     }
 
     @Test
+    fun `two list with different sizes`() {
+        assertThat(Solution().addTwoNumbers(LinkedList(listOf(1, 2)), LinkedList(listOf(2)))).isEqualTo(LinkedList(listOf(3, 2)))
+        assertThat(Solution().addTwoNumbers(LinkedList(listOf(1)), LinkedList(listOf(1, 2)))).isEqualTo(LinkedList(listOf(2, 2)))
+    }
+
+    @Test
     fun `sample data`() {
         assertThat(Solution().addTwoNumbers(LinkedList(listOf(2, 4, 3)), LinkedList(listOf(5, 6, 4)))).isEqualTo(LinkedList(listOf(7, 0, 8)))
+    }
+
+    @Test
+    fun `a more comprehensive test`() {
+        assertThat(Solution().addTwoNumbers(LinkedList(listOf(9, 9)), LinkedList(listOf(1)))).isEqualTo(LinkedList(listOf(0, 0, 1)))
+        assertThat(Solution().addTwoNumbers(LinkedList(listOf(9, 9)), LinkedList(listOf(1, 1)))).isEqualTo(LinkedList(listOf(0, 1, 1)))
+        assertThat(Solution().addTwoNumbers(LinkedList(listOf(9, 9)), LinkedList(listOf(1, 1, 9)))).isEqualTo(LinkedList(listOf(0, 1, 0, 1)))
     }
 }
