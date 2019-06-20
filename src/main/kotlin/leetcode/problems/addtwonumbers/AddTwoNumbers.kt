@@ -1,49 +1,29 @@
 package leetcode.problems.addtwonumbers
 
-/**
- * Example:
- * var li = ListNode(5)
- * var v = li.`val`
- * Definition for singly-linked list.
- * class ListNode(var `val`: Int) {
- *     var next: ListNode? = null
- * }
- */
-
-data class ListNode(var value: Int, var next: ListNode? = null) : Iterator<Int> {
-    override fun hasNext(): Boolean {
-        return next != null
-    }
-
-    override fun next(): Int {
-        return next?.value ?: throw NoSuchElementException()
-    }
-}
+import java.util.*
 
 class Solution {
-    fun addTwoNumbers(l1: ListNode?, l2: ListNode?): ListNode? {
-        if (l1 == null) return l2
+    fun addTwoNumbers(l1: LinkedList<Int>, l2: LinkedList<Int>): LinkedList<Int> {
+        if (l1.isEmpty()) return l2
+        if (l2.isEmpty()) return l1
 
-        if (l2 == null) return l1
+        val result = LinkedList<Int>()
+        result.add(0)
 
+        for ((index, value) in l1.withIndex()) {
+            val addition = result.last + value + l2[index]
+            result.removeLast()
 
-        val result = ListNode(0, null)
-        var tail: ListNode = result
-        var t = 0
-
-        for (i in l1) {
-            val value = t + i + l2.value
-
-            if (value >= 10) {
-                tail.value = value - 10
-                t = 1
+            if (addition >= 10) {
+                result.addLast(addition - 10)
+                result.addLast(1)
             } else {
-                tail.value =  value
-                t = 0
+                result.addLast(addition)
+                result.addLast(0)
             }
-
-            tail = tail.next!!
         }
+
+        if (result.last == 0) result.removeLast()
 
         return result
     }
