@@ -5,23 +5,27 @@ import java.util.LinkedList
 
 
 class Solution {
-    fun wordBreak(s: String, wordDict: Set<String>): Set<String> {
+    fun brutalForceWordBreak(s: String, wordDict: Set<String>): Set<String> {
         return word_Break(s, wordDict, 0).toSet()
     }
 
-    fun word_Break(s: String, wordDict: Set<String>, start: Int): LinkedList<String> {
-        val res = LinkedList<String>()
-        if (start == s.length) {
-            res.add("")
+    private fun word_Break(s: String, wordDict: Set<String>, start: Int): List<String> {
+        val result = LinkedList<String>()
+        if (start == s.length)  {
+            result.add("")
+            return result
         }
-        for (end in start + 1..s.length) {
+
+        for (end in start + 1 .. s.length) {
             if (wordDict.contains(s.substring(start, end))) {
-                val list = word_Break(s, wordDict, end)
+                val list = word_Break( s, wordDict, end)
                 for (l in list) {
-                    res.add(s.substring(start, end) + (if (l == "") "" else " ") + l)
+                    result.add(s.substring(start, end) + (if (l == "") "" else " ") + l)
                 }
             }
         }
-        return res
+
+        return result
     }
+
 }
