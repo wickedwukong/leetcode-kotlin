@@ -1,6 +1,10 @@
 package leetcode.problems.wordbreak2_140
 
 import java.util.LinkedList
+import javax.swing.UIManager.put
+import java.util.HashMap
+
+
 
 
 
@@ -26,6 +30,32 @@ class Solution {
         }
 
         return result
+    }
+
+    fun wordBreak(s: String, wordDict: Set<String>): List<String> {
+        return word_Break2(s, wordDict, 0)
+    }
+
+    var map = HashMap<Int, List<String>>()
+
+    fun word_Break2(s: String, wordDict: Set<String>, start: Int): List<String> {
+        if (map.containsKey(start)) {
+            return map[start]!!
+        }
+        val res = LinkedList<String>()
+        if (start == s.length) {
+            res.add("")
+        }
+        for (end in start + 1..s.length) {
+            if (wordDict.contains(s.substring(start, end))) {
+                val list = word_Break(s, wordDict, end)
+                for (l in list) {
+                    res.add(s.substring(start, end) + (if (l == "") "" else " ") + l)
+                }
+            }
+        }
+        map[start] = res
+        return res
     }
 
 }

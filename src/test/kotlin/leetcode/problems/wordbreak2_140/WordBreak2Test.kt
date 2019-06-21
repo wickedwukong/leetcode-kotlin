@@ -13,6 +13,7 @@ class WordBreak2Test {
     @Test
     fun `sample data`() {
         assertThat(Solution().brutalForceWordBreak("catsanddog", setOf("cat", "cats", "and", "sand", "dog"))).isEqualTo(setOf("cats and dog", "cat sand dog"))
+        assertThat(Solution().brutalForceWordBreak("catsandog", setOf("cats", "dog", "sand", "and", "cat"))).isEqualTo(emptySet<String>())
         assertThat(Solution().brutalForceWordBreak("pineapplepenapple", setOf("apple", "pen", "applepen", "pine", "pineapple")))
                 .isEqualTo(setOf("pine apple pen apple",
                         "pineapple pen apple",
