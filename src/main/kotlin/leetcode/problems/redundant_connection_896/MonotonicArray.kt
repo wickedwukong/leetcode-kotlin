@@ -4,24 +4,18 @@ class Solution {
     fun isMonotonic(values: IntArray): Boolean {
         if (values.isEmpty()) return true
 
-        return isIncreasing(values) || isDescreasing(values)
+        return isIncreasing(values) || isDecreasing(values)
     }
 
-    private fun isDescreasing(values: IntArray): Boolean {
-        val initialValue = values[0]
-
-        val decreaseResult = values.toList().drop(1).fold(Pair(true, initialValue), { acc, value ->
-            Pair(acc.first && value <= acc.second, value)
-        })
-        return decreaseResult.first
+    private fun isDecreasing(values: IntArray): Boolean {
+        return values.toList().windowed(2, 1).all{
+            it[0] >= it[1]
+        }
     }
 
     private fun isIncreasing(values: IntArray): Boolean {
-        val initialValue = values[0]
-
-        val increaseResult = values.toList().drop(1).fold(Pair(true, initialValue), { acc, value ->
-            Pair(acc.first && value >= acc.second, value)
-        })
-        return increaseResult.first
+        return values.toList().windowed(2, 1).all{
+            it[0] <= it[1]
+        }
     }
 }

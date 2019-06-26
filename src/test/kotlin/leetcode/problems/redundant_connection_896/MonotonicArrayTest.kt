@@ -37,11 +37,11 @@ class MonotonicArrayTest {
 
     @Test
     fun `more comprehensive tests - sample date`() {
-        assertThat(Solution().isMonotonic(intArrayOf(1,2,2,3))).isTrue()
-        assertThat(Solution().isMonotonic(intArrayOf(6,5,4,4))).isTrue()
+//        assertThat(Solution().isMonotonic(intArrayOf(1,2,2,3))).isTrue()
+//        assertThat(Solution().isMonotonic(intArrayOf(6,5,4,4))).isTrue()
         assertThat(Solution().isMonotonic(intArrayOf(1,3,2))).isFalse()
-        assertThat(Solution().isMonotonic(intArrayOf(1,2,4,5))).isTrue()
-        assertThat(Solution().isMonotonic(intArrayOf(1,1,1))).isTrue()
+//        assertThat(Solution().isMonotonic(intArrayOf(1,2,4,5))).isTrue()
+//        assertThat(Solution().isMonotonic(intArrayOf(1,1,1))).isTrue()
     }
 
 }
