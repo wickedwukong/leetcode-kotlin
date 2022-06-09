@@ -1,4 +1,4 @@
-package leetcode.problems.containerwithwostwater_11
+package leetcode.problems.containerwithmostwater_11
 
 class Solution {
     fun maxArea(heights: List<Int>): Int {

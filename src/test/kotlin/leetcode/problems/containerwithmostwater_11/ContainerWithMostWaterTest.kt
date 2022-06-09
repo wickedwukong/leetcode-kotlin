@@ -1,10 +1,10 @@
-package leetcode.problems.containerwithwostwater_11
+package leetcode.problems.containerwithmostwater_11
 
 import org.assertj.core.api.Assertions
 import kotlin.test.Test
 
 
-internal class ContainerWithMostWaterTest {
+internal class SolutionTest {
     @Test
     fun `max area for 1 height`() {
         Assertions.assertThat(Solution().maxArea(listOf(100))).isEqualTo(0)
