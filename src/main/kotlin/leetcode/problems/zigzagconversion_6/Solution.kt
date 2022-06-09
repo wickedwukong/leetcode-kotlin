@@ -2,7 +2,6 @@ package leetcode.problems.zigzagconversion_6
 
 class Solution(private val text: String, private val numOfRows: Int) {
     fun convert(): String {
-        val chars = text.toCharArray()
         var nextRow = 0
         var goingDown = true
 
@@ -10,7 +9,7 @@ class Solution(private val text: String, private val numOfRows: Int) {
             mutableListOf<Char>()
         }
 
-        for (char in chars) {
+        for (char in text.toCharArray()) {
             if (goingDown) {
                 zigZag[nextRow].add(char)
                 if ((nextRow + 1) <= (numOfRows - 1)) {
