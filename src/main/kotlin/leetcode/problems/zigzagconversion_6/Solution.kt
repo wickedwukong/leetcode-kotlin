@@ -2,6 +2,9 @@ package leetcode.problems.zigzagconversion_6
 
 class Solution(private val text: String, private val numOfRows: Int) {
     fun convert(): String {
+        if (numOfRows == 1)
+            return text
+
         var nextRow = 0
         var goingDown = true
 
@@ -16,8 +19,7 @@ class Solution(private val text: String, private val numOfRows: Int) {
                     nextRow += 1
                 } else {
                     goingDown = false
-                    if (numOfRows > 1)
-                        nextRow -= 1
+                    nextRow -= 1
                 }
             } else {
                 zigZag[nextRow].add(char)
@@ -25,8 +27,7 @@ class Solution(private val text: String, private val numOfRows: Int) {
                     nextRow -= 1
                 } else {
                     goingDown = true
-                    if (numOfRows > 1)
-                        nextRow += 1
+                    nextRow += 1
                 }
             }
         }
