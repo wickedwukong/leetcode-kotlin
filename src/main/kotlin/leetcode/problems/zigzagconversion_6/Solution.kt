@@ -1,6 +1,6 @@
 package leetcode.problems.zigzagconversion_6
 
-class Solution(private val text: String, val numOfRows: Int) {
+class Solution(private val text: String, private val numOfRows: Int) {
     fun convert(): String {
         val chars = text.toCharArray()
         var nextRow = 0
