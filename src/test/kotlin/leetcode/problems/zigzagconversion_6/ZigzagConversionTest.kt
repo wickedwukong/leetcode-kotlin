@@ -11,6 +11,11 @@ internal class ZigzagConversionTest {
     }
 
     @Test
+    fun `convert for 3 letter and a single row`() {
+        assertThat(Solution("ABC", 1).convert()).isEqualTo("ABC")
+    }
+
+    @Test
     fun `convert for 2 letters and a single row`() {
         assertThat(Solution("AB", 1).convert()).isEqualTo("AB")
     }
@@ -26,8 +31,13 @@ internal class ZigzagConversionTest {
     }
 
     @Test
-    fun `convert for multiple letters and multiple rows`() {
+    fun `convert for multiple letters and 3 rows`() {
         assertThat(Solution("PAYPALISHIRING", 3).convert()).isEqualTo("PAHNAPLSIIGYIR")
+    }
+
+    @Test
+    fun `convert for multiple letters and more rows`() {
+        assertThat(Solution("PAYPALISHIRING", 4).convert()).isEqualTo("PINALSIGYAHRPI")
     }
 
 }

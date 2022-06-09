@@ -3,33 +3,38 @@ package leetcode.problems.zigzagconversion_6
 class Solution(private val text: String, val numOfRows: Int) {
     fun convert(): String {
         val chars = text.toCharArray()
-        var currentRow = 0
-        var previousCharIndex = 0
+        var nextRow = -1
+        var goingDown = true
 
         val zigZag: List<MutableList<Char>> = (1..numOfRows).map {
             mutableListOf<Char>()
         }
 
         for (char in chars) {
-            if (currentRow <= (numOfRows - 1)) {
-                zigZag[currentRow].add(previousCharIndex, char)
-                if (currentRow < (numOfRows - 1))
-                   currentRow += 1
-                else if (currentRow != 0) {
-                    previousCharIndex += 1
-                    currentRow -= 1
+            if (goingDown) {
+                if ((nextRow + 1) <= (numOfRows - 1)) {
+                    nextRow += 1
+                    zigZag[nextRow].add(char)
+                } else {
+                    goingDown = false
+                    if (nextRow >= 1)
+                        nextRow -= 1
+                    zigZag[nextRow].add(char)
+                }
+            } else {
+                if ((nextRow - 1) >= 0) {
+                    nextRow -= 1
+                    zigZag[nextRow].add(char)
+                } else {
+                    goingDown = true
+                    if (numOfRows > 1)
+                        nextRow += 1
+                    zigZag[nextRow].add(char)
                 }
             }
-            else {
-                currentRow -= 1
-                previousCharIndex += 1
-                zigZag[currentRow].add(previousCharIndex, char)
-            }
-
         }
-        val x: List<List<Char>> = zigZag.map { rowList -> rowList.filterNotNull() }
 
-        val result  = x.fold(emptyList<Char>()) { acc: List<Char>, rowList: List<Char> ->
+        val result = zigZag.fold(emptyList()) { acc: List<Char>, rowList: List<Char> ->
             acc.plus(rowList)
         }
 
