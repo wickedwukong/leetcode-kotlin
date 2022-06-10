@@ -1,12 +1,7 @@
 package leetcode.problems.wordbreak2_140
 
 import java.util.LinkedList
-import javax.swing.UIManager.put
 import java.util.HashMap
-
-
-
-
 
 class Solution {
     fun brutalForceWordBreak(s: String, wordDict: Set<String>): Set<String> {
