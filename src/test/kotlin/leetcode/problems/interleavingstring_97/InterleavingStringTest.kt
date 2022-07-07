@@ -34,6 +34,13 @@ internal class InterleavingStringTest {
     }
 
     @Test
+    fun `some simple cases`() {
+        assertThat(Solution().isInterleave(s1 = "12", s2 = "34", s3 = "3124")).isTrue()
+        assertThat(Solution().isInterleave(s1 = "1", s2 = "34", s3 = "314")).isTrue()
+        assertThat(Solution().isInterleave(s1 = "1", s2 = "34", s3 = "341")).isTrue()
+    }
+
+    @Test
     fun `all combinations`() {
         val combinations = Solution().combinations("111", "22")
 
