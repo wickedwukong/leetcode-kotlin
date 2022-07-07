@@ -9,7 +9,7 @@ class Solution {
         return allCombinations(s1, 0, s2, 0, "", mutableListOf())
     }
 
-    fun allCombinations(
+    private fun allCombinations(
         s1: String,
         i: Int,
         s2: String,
