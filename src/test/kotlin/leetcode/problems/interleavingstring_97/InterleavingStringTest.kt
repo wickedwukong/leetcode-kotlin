@@ -8,21 +8,29 @@ internal class InterleavingStringTest {
     @Test
     fun `empty strings`() {
         assertThat(Solution().isInterleave("", "", "")).isTrue
+        assertThat(Solution().isInterleaveLessMemory("", "", "")).isTrue
     }
 
     @Test
     fun `a true case`() {
         assertThat(Solution().isInterleave(s1 = "aabcc", s2 = "dbbca", s3 = "aadbbcbcac")).isTrue
+        assertThat(Solution().isInterleaveLessMemory(s1 = "aabcc", s2 = "dbbca", s3 = "aadbbcbcac")).isTrue
     }
 
     @Test
     fun `another true case`() {
         assertThat(Solution().isInterleave(s1 = "aabcc", s2 = "dbbca", s3 = "aadbcbbcac")).isTrue
+        assertThat(Solution().isInterleaveLessMemory(s1 = "aabcc", s2 = "dbbca", s3 = "aadbcbbcac")).isTrue
+    }
+    @Test
+    fun `another true long case`() {
+        assertThat(Solution().isInterleaveLessMemory(s1 = "cabbcaaacacbac", s2 = "acabaabacabcca", s3 = "cacabaabacaabccbabcaaacacbac")).isTrue
     }
 
     @Test
     fun `a false case`() {
         assertThat(Solution().isInterleave(s1 = "aabcc", s2 = "dbbca", s3 = "aadbbbaccc")).isFalse
+        assertThat(Solution().isInterleaveLessMemory(s1 = "aabcc", s2 = "dbbca", s3 = "aadbbbaccc")).isFalse
     }
 
     @Test
