@@ -20,7 +20,6 @@ class Solution {
 
         if (i == s1.length && j == s2.length) {
             combinations.add(currentCombination)
-            return combinations
         }
 
         if (i < s1.length) {
