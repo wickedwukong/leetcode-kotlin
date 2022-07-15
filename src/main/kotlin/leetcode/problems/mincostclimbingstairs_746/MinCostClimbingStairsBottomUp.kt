@@ -1,6 +1,6 @@
 package leetcode.problems.mincostclimbingstairs_746
 
-class Solution {
+class SolutionBottomUp {
     fun minCostClimbingStairs(cost: IntArray): Int {
         val minimumCost: MutableList<Int> = (0 .. cost.size).map { 0 }.toMutableList()
 
